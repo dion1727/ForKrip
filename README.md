@@ -1,94 +1,222 @@
-# Kriptofull
+<h1 align="center">Kriptofull</h1>
 
-**Kriptofull** adalah aplikasi kriptografi berbasis web lokal untuk enkripsi dan dekripsi teks maupun dokumen `.txt`. Berjalan melalui browser tetapi diproses oleh server Python di komputer sendiri.
+<p align="center">
+  <strong>Aplikasi kriptografi berbasis web untuk enkripsi, dekripsi, pengolahan file, dan analisis Feistel.</strong>
+</p>
 
-## Fitur
+<p align="center">
+  Mendukung algoritma <strong>DES</strong>, <strong>3DES</strong>, dan <strong>AES</strong> dalam satu aplikasi yang rapi, modern, dan mudah digunakan.
+</p>
 
-- Enkripsi/dekripsi **DES** dan **3DES** dengan implementasi Feistel/XOR sendiri atau library PyCryptodome.
-- Enkripsi/dekripsi **AES-128/192/256** dengan PyCryptodome, termasuk mode GCM untuk autentikasi.
-- Mode ECB dan CBC dengan padding PKCS#7; mode GCM khusus AES.
-- Input teks dan file TXT, pratinjau, unduh hasil, verifikasi SHA-256, dan pengujian ulang.
-- Format pertukaran ciphertext TXT **HEX**, **ZAR1**, **SLK1** (password turunan), dan **B64** (Base64 berlabel); mendukung format `.enc` biner versi terdahulu.
-- Pengujian DES/3DES dan perbandingan implementasi sendiri versus library.
-- Inspeksi ronde Feistel (16 ronde DES dan tiga tahap DES pada 3DES), dengan notasi XOR.
-- Antarmuka berbahasa Indonesia dan contoh teks umum yang dapat diganti dengan dokumen pengguna.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Platform-Web-darkgreen?style=for-the-badge" alt="Platform">
+  <img src="https://img.shields.io/badge/Crypto-DES%20%7C%203DES%20%7C%20AES-0b5d3b?style=for-the-badge" alt="Crypto">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status">
+</p>
 
-> **Keamanan:** DES, 3DES, dan mode ECB tidak dianjurkan untuk melindungi data sensitif. Proyek ini menyediakan algoritma tersebut untuk kompatibilitas dan inspeksi proses. Untuk perlindungan data baru, lebih baik gunakan AES-GCM dengan password/kunci kuat. Proyek belum diaudit secara independen dan bukan pengganti aplikasi enkripsi teruji untuk kebutuhan berisiko tinggi.
+---
 
-## Menjalankan
+## 📌 Deskripsi Singkat
 
-Perlu Python 3.10 atau lebih baru (disarankan 3.12). Jalankan dari folder proyek:
+**Kriptofull** adalah aplikasi kriptografi berbasis web yang dirancang untuk membantu pengguna melakukan:
 
-```bash
-python -m pip install -r requirements.txt
-python app.py
-```
+- enkripsi teks,
+- dekripsi teks,
+- enkripsi file,
+- dekripsi file,
+- pengujian algoritma,
+- perbandingan implementasi,
+- serta analisis ronde **Feistel & XOR**.
 
-Di Windows dapat memakai `py` sebagai pengganti `python`, atau menjalankan `INSTALL_LIBRARY.bat` lalu `JALANKAN_KRIPTOFULL.bat`.
+Aplikasi ini dibuat agar pengguna dapat mengelola proses kriptografi dalam satu tempat dengan antarmuka yang sederhana namun tetap informatif.
 
-Buka **http://127.0.0.1:5000**. Server hanya mendengarkan alamat loopback `127.0.0.1`, sehingga tidak langsung tersedia melalui jaringan. Hentikan server dengan **Ctrl+C**.
+---
 
-Jika port 5000 sedang digunakan, jalankan melalui PowerShell:
+## ✨ Fitur Utama
 
-```powershell
-$env:KRIPTOFULL_PORT="5001"
-py app.py
-```
+- **Enkripsi & dekripsi teks**
+- **Enkripsi & dekripsi file**
+- Dukungan algoritma **DES**, **3DES**, dan **AES**
+- Dukungan **password / HEX key**
+- Pilihan **mode operasi** seperti ECB dan CBC
+- **Format output** ciphertext yang fleksibel
+- **Deteksi otomatis** saat proses dekripsi teks
+- **Analisis Feistel & XOR** per ronde
+- **Pengujian algoritma** langsung dari aplikasi
+- **Perbandingan hasil implementasi**
+- Antarmuka web yang modern dan mudah digunakan
 
-`main.py` juga tersedia sebagai alternatif entry point. Program terminal: `python terminal_crypto.py`.
+---
 
-## Cara menggunakan
+## 🖼️ Tampilan Aplikasi
 
-### Teks
+## 1. Halaman Beranda
+Halaman utama menampilkan ringkasan fungsi aplikasi dan pintasan menuju seluruh fitur utama Kriptofull.
 
-1. Buka tab **Teks**, pilih algoritma, mode, dan implementasi.
-2. Masukkan password atau kunci HEX, lalu masukkan plaintext.
-3. Pilih format hasil, tekan **Enkripsi** dan gunakan **Unduh** jika perlu.
-4. Untuk dekripsi, gunakan hasil enkripsi terakhir langsung atau tempel ciphertext dari file, masukkan kunci yang sama, lalu tekan **Dekripsi**. Pilih **Deteksi otomatis** untuk format yang didukung.
+<p align="center">
+  <img src="docs/images/home.png" alt="Halaman Beranda Kriptofull" width="100%">
+</p>
 
-### File
+**Fungsi halaman ini:**
+- menampilkan identitas aplikasi,
+- memberikan gambaran singkat fungsi Kriptofull,
+- menyediakan akses cepat ke menu:
+  - Laboratorium Teks,
+  - Enkripsi File,
+  - Dekripsi File,
+  - Bandingkan,
+  - Feistel,
+  - Pengujian.
 
-- **Enkripsi File**: pilih file sendiri atau gunakan salah satu dokumen contoh netral, pilih format, enkripsi dan unduh `.txt` terenkripsi.
-- **Dekripsi File**: unggah ciphertext, masukkan kunci yang sama dan gunakan deteksi format. Untuk memeriksa hasil secara byte, pilih juga berkas asli sebagai pembanding.
-- Tombol **Teruskan ke Dekripsi** meneruskan hasil dan konfigurasi dari halaman Enkripsi File.
+---
 
-### Kunci dan format
+## 2. Menu Enkripsi File
+Menu ini digunakan untuk mengenkripsi file teks menjadi ciphertext dengan algoritma dan mode yang dipilih.
 
-- Kunci HEX bisa dimasukkan langsung (untuk DES 16 digit, 3DES 48 digit, AES menyesuaikan varian). Kunci teks yang tepat panjangnya bisa dipakai secara langsung; gunakan prefix `hex:` atau `text:` bila ingin memaksa interpretasi.
-- Password dengan panjang selain ukuran kunci diproses menggunakan **PBKDF2-HMAC-SHA256**, salt acak, dan metadata SLK1. Password **3DES minimal 13 karakter** untuk proses enkripsi baru berbasis penurunan kunci.
-- Ciphertext **HEX** menampung byte ciphertext dalam format heksadesimal; format **SLK1** mencakup parameter derivasi password serta HMAC; format **ZAR1** mendukung DES/3DES dalam CBC; format **B64** berisi label dan Base64. Ini adalah **format penyimpanan**, bukan algoritma tambahan.
-- Ciphertext mentah yang tidak menyimpan algoritma/mode tidak memungkinkan aplikasi mengetahui kunci secara ajaib. Fitur deteksi otomatis dapat mencoba konfigurasi lazim menggunakan kunci yang diberikan; untuk data tanpa autentikasi, hasil yang tampak terbaca belum menjadi jaminan kriptografis.
-- **Jangan menyimpan atau membagikan password bersama ciphertext**. Password hilang tidak dapat dipulihkan dari file terenkripsi.
+<p align="center">
+  <img src="docs/images/enkripsi-file.png" alt="Menu Enkripsi File" width="100%">
+</p>
 
-## Struktur proyek
+**Fitur pada halaman ini:**
+- memilih algoritma enkripsi,
+- memilih mode operasi,
+- memilih implementasi,
+- memasukkan kunci dalam bentuk password atau HEX,
+- memasukkan IV/nonce jika diperlukan,
+- membuka file `.txt`,
+- melihat pratinjau isi dokumen,
+- memilih format ciphertext,
+- melakukan enkripsi dokumen,
+- mengunduh ciphertext hasil enkripsi,
+- melakukan verifikasi pemulihan setelah enkripsi.
+
+---
+
+## 3. Menu Enkripsi & Dekripsi Teks
+Menu ini dipakai untuk mengolah teks secara langsung tanpa harus melalui file.
+
+<p align="center">
+  <img src="docs/images/teks.png" alt="Menu Enkripsi dan Dekripsi Teks" width="100%">
+</p>
+
+**Fungsi utama menu ini:**
+- mengetik plaintext secara langsung,
+- membuka file `.txt` untuk mengisi input,
+- menyimpan teks atau hasil proses,
+- memilih algoritma, mode, dan implementasi,
+- memasukkan kunci kustom,
+- mengenkripsi teks,
+- mendekripsi ciphertext,
+- memindahkan hasil output ke kolom input,
+- membersihkan area kerja,
+- memilih format hasil output,
+- menggunakan **deteksi otomatis** saat dekripsi.
+
+---
+
+## 4. Menu Pengujian
+Menu ini berfungsi untuk melakukan validasi implementasi algoritma yang ada di dalam aplikasi.
+
+<p align="center">
+  <img src="docs/images/pengujian.png" alt="Menu Pengujian Algoritma" width="100%">
+</p>
+
+**Kegunaan menu ini:**
+- menguji apakah algoritma berjalan dengan benar,
+- memvalidasi proses padding,
+- memeriksa proses pemulihan data,
+- menjalankan seluruh skenario pengujian secara otomatis,
+- menampilkan hasil uji di dalam aplikasi.
+
+Menu ini berguna untuk memastikan implementasi DES, 3DES, dan fitur terkait bekerja dengan baik.
+
+---
+
+## 5. Menu Feistel & XOR
+Menu ini digunakan untuk melihat struktur kerja algoritma berbasis Feistel secara lebih rinci.
+
+<p align="center">
+  <img src="docs/images/feistel.png" alt="Menu Feistel dan XOR" width="100%">
+</p>
+
+**Fitur pada halaman ini:**
+- memilih algoritma,
+- memasukkan kunci,
+- memilih jenis input,
+- menentukan nomor blok yang dianalisis,
+- menghitung ronde,
+- melihat proses XOR,
+- memahami pembagian dan transformasi data pada tiap ronde.
+
+Menu ini sangat berguna untuk kebutuhan pembelajaran, analisis, dan pemahaman cara kerja kriptografi blok.
+
+---
+
+## 🧭 Struktur Menu Aplikasi
+
+Kriptofull memiliki beberapa menu utama pada navigation bar:
+
+### 1. Beranda
+Menampilkan halaman utama aplikasi dan ringkasan fitur yang tersedia.
+
+### 2. Enkripsi File
+Digunakan untuk mengenkripsi file teks menjadi ciphertext sesuai algoritma dan mode yang dipilih.
+
+### 3. Dekripsi File
+Digunakan untuk memulihkan file ciphertext menjadi file asli/plaintext.
+
+### 4. Teks
+Digunakan untuk enkripsi dan dekripsi teks secara langsung.
+
+### 5. Pengujian
+Digunakan untuk menjalankan validasi terhadap implementasi algoritma.
+
+### 6. Bandingkan
+Digunakan untuk membandingkan hasil dari dua implementasi berbeda agar dapat dilihat konsistensi atau kesesuaiannya.
+
+### 7. Feistel
+Digunakan untuk melihat proses ronde Feistel dan pembuktian XOR.
+
+---
+
+## ⚙️ Teknologi yang Digunakan
+
+Project ini dibangun menggunakan:
+
+- **Python**
+- **HTML**
+- **CSS**
+- **JavaScript**
+- Implementasi algoritma:
+  - DES
+  - 3DES
+  - AES
+- Dukungan implementasi manual dan library crypto
+
+---
+
+## 📁 Struktur Project
+
+Berikut struktur umum project Kriptofull:
 
 ```text
 Kriptofull/
-├── app.py                 # Server HTTP lokal, endpoint API
-├── main.py                # Entrypoint alternatif
-├── des_own.py             # DES standar, 16 ronde Feistel dan XOR
-├── des3_own.py            # 3DES EDE berbasis DES buatan sendiri
-├── file_crypto.py         # Kunci, padding, mode, format ciphertext, AES
-├── compare.py             # Pengujian kesesuaian dengan library
-├── terminal_crypto.py     # Program kriptografi melalui terminal
-├── static/                # HTML, CSS, JavaScript antarmuka
-├── assets/                # Ikon aplikasi
-├── contoh/                # Dokumen dummy publik, aman dibagikan
-├── tests/                 # Unit/regression tests
+├── app.py
+├── main.py
+├── compare.py
+├── des_own.py
+├── des3_own.py
+├── file_crypto.py
+├── terminal_crypto.py
 ├── requirements.txt
-└── .gitignore
-```
-
-## Pengujian
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-Sebagian tes membutuhkan paket `pycryptodome`; setelah `pip install -r requirements.txt`, pengujian perbandingan Crypto dapat dijalankan. Tidak perlu mengunggah dokumen pribadi untuk mencoba contoh.
-
-## Kontribusi & publikasi GitHub
-
-Repo ini mencakup kode, ikon, dan dokumen contoh; tidak menyertakan file pengguna maupun ciphertext dari pihak lain. Periksa kembali hak penggunaan ikon sebelum publikasi, dan tambahkan berkas LICENSE sesuai lisensi yang Anda pilih sebagai pemilik proyek.
-
-Lihat `CONTRIBUTING.md` untuk panduan kontribusi serta `SECURITY.md` untuk batas keamanan.
+├── README.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── .env.example
+├── .gitignore
+├── assets/
+├── static/
+├── tests/
+└── docs/
+    └── images/

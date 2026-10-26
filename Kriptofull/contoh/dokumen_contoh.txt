@@ -1,0 +1,38 @@
+CATATAN PROYEK
+
+Dokumen ini berisi data contoh yang tidak bersifat rahasia.
+Tujuannya untuk menguji pengolahan file teks, spasi, dan baris baru.
+
+Bagian 1: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 1. Data uji 0037.
+Bagian 2: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 2. Data uji 0074.
+Bagian 3: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 3. Data uji 0111.
+Bagian 4: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 4. Data uji 0148.
+Bagian 5: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 5. Data uji 0185.
+Bagian 6: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 6. Data uji 0222.
+Bagian 7: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 7. Data uji 0259.
+Bagian 8: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 8. Data uji 0296.
+Bagian 9: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 9. Data uji 0333.
+Bagian 10: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 10. Data uji 0370.
+Bagian 11: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 11. Data uji 0407.
+Bagian 12: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 12. Data uji 0444.
+Bagian 13: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 13. Data uji 0481.
+Bagian 14: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 14. Data uji 0518.
+Bagian 15: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 15. Data uji 0555.
+Bagian 16: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 16. Data uji 0592.
+Bagian 17: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 17. Data uji 0629.
+Bagian 18: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 18. Data uji 0666.
+Bagian 19: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 19. Data uji 0703.
+Bagian 20: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 20. Data uji 0740.
+Bagian 21: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 21. Data uji 0777.
+Bagian 22: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 22. Data uji 0814.
+Bagian 23: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 23. Data uji 0851.
+Bagian 24: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 24. Data uji 0888.
+Bagian 25: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 25. Data uji 0925.
+Bagian 26: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 26. Data uji 0962.
+Bagian 27: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 27. Data uji 0999.
+Bagian 28: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 28. Data uji 1036.
+Bagian 29: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 29. Data uji 1073.
+Bagian 30: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 30. Data uji 1110.
+Bagian 31: Rencana kegiatan, jadwal, dan ringkasan hasil pekan 31. Data uji 1147.
+
+Akhir dokumen.

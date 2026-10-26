@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Kriptofull | DES · 3DES · AES</title>
+ <link rel="icon" type="image/png" href="/assets/logo_window.png">
+ <link rel="stylesheet" href="/style.css">
+ <script defer src="/script.js"></script>
+</head>
+<body>
+ <header class="topbar">
+  <div class="top-inner">
+   <div class="identity"><img src="/assets/logo_nav.png" alt="Logo Kriptofull"><div><strong>Kriptofull</strong><span>DES / 3DES / AES</span></div></div>
+   <nav class="nav" aria-label="Navigasi utama">
+    <button type="button" data-page="home" class="current">⌂ <span>Beranda</span></button>
+    <button type="button" data-page="encrypt-file">↗ <span>Enkripsi File</span></button>
+    <button type="button" data-page="decrypt-file">↙ <span>Dekripsi File</span></button>
+    <button type="button" data-page="text">▤ <span>Teks</span></button>
+    <button type="button" data-page="tests">✓ <span>Pengujian</span></button>
+    <button type="button" data-page="compare">⇄ <span>Bandingkan</span></button>
+    <button type="button" data-page="feistel">⊕ <span>Feistel</span></button>
+   </nav>
+  </div>
+ </header>
+ <main id="main" class="main">
+  <section class="page shown" id="page-home">
+   <div class="page-title"><div><span class="eyebrow">WORKSPACE KRIPTOGRAFI</span><h1>Kelola Teks & Dokumen dengan Kriptofull</h1><p>Enkripsi, dekripsi, dan analisis algoritma dalam satu tempat.</p></div><div class="chip">● Server lokal aktif</div></div>
+   <div class="hero">
+    <div><span class="eyebrow light">FITUR UTAMA</span><h2>Enkripsi teks dan dokumen, tanpa aplikasi tambahan.</h2><p>Enkripsi teks, kelola dokumen, dan lihat detail proses kriptografi.</p><button class="btn light-btn" data-goto="text">Mulai Enkripsi Teks ↗</button></div>
+    <div class="hero-mark" aria-hidden="true">⊕</div>
+   </div>
+   <h2 class="section-title">Pilih fitur</h2>
+   <div class="feature-grid">
+    <button class="feature" data-goto="text"><span class="feature-icon">▤</span><b>Laboratorium Teks</b><small>Ketik, muat .txt, enkripsi atau dekripsi.</small><span class="feature-go">↗</span></button>
+    <button class="feature" data-goto="encrypt-file"><span class="feature-icon">↗</span><b>Enkripsi File</b><small>Dokumen asli menjadi ciphertext .txt.</small><span class="feature-go">↗</span></button>
+    <button class="feature" data-goto="decrypt-file"><span class="feature-icon">↙</span><b>Dekripsi File</b><small>Pulihkan dokumen, termasuk format ZAR1.</small><span class="feature-go">↗</span></button>
+    <button class="feature" data-goto="compare"><span class="feature-icon">⇄</span><b>Bandingkan</b><small>Bandingkan hasil dua implementasi DES/3DES.</small><span class="feature-go">↗</span></button>
+    <button class="feature" data-goto="feistel"><span class="feature-icon">⊕</span><b>Feistel</b><small>Lihat ronde dan perhitungan XOR.</small><span class="feature-go">↗</span></button>
+    <button class="feature" data-goto="tests"><span class="feature-icon">✓</span><b>Pengujian</b><small>Uji blok, padding, dan pemulihan.</small><span class="feature-go">↗</span></button>
+   </div>
+   <div class="footnote">DES dan 3DES tersedia untuk kompatibilitas dan eksplorasi. Untuk data sensitif, gunakan AES-GCM dengan kunci yang kuat.</div>
+  </section>
+
+  <section class="page" id="page-text">
+   <div class="page-title"><div><span class="eyebrow">TEKS</span><h1>Enkripsi &amp; Dekripsi Teks</h1><p>Tulis pesan atau buka TXT. Dekripsi mencoba membaca format, algoritma, dan mode secara otomatis.</p></div><div class="chip">Blok 64 / 128 bit</div></div>
+   <div class="work-grid">
+    <aside class="panel settings"><h2>Pengaturan</h2><div class="settings-fields" id="cfg-text"></div></aside>
+    <div class="panel area"><div class="panel-head"><div><h2>Plaintext / Input</h2><small id="text-input-meta">0 byte</small></div><div class="tools"><button class="btn alt sm" id="text-example">Contoh</button><label class="btn alt sm">Buka .TXT<input type="file" id="text-file" accept=".txt,text/plain" hidden></label><button class="btn alt sm" id="text-save-input">Simpan .TXT</button></div></div><textarea id="text-input" spellcheck="false" placeholder="Ketik pesan di sini..." class="big-text"></textarea></div>
+    <div class="panel area"><div class="panel-head"><div><h2>Hasil / Output</h2><small id="text-output-meta">Belum ada hasil</small></div><div class="tools"><label class="select-inline">Format hasil <select id="text-export-format" aria-label="Format hasil enkripsi"><option value="HEX">HEX (TXT)</option><option value="ZAR1">ZAR1 (TXT)</option><option value="SLK1">SLK1 (TXT)</option><option value="B64">Base64 (TXT)</option></select></label><button class="btn alt sm" id="text-copy">Salin</button><button class="btn alt sm" id="text-save-output">Unduh</button></div></div><textarea id="text-output" spellcheck="false" readonly class="big-text" placeholder="Hasil enkripsi atau dekripsi akan tampil di sini."></textarea></div>
+   </div>
+   <div class="action-bar"><div class="action-buttons"><button class="btn action-mode" id="text-encrypt">🔒 Enkripsi</button><button class="btn action-mode" id="text-decrypt">🔓 Dekripsi</button><button class="btn alt" id="text-move">Pindah Hasil → Input</button><button class="btn alt" id="text-clear">Bersihkan</button></div><div class="action-info"><label class="select-inline">Input dekripsi <select id="text-input-format" aria-label="Format ciphertext masuk"><option value="AUTO">Deteksi otomatis</option><option value="HEX">HEX</option><option value="ZAR1">ZAR1</option><option value="SLK1">SLK1</option><option value="B64">Base64</option></select></label><span id="text-status">Siap mengolah teks</span></div></div>
+  </section>
+
+  <section class="page" id="page-encrypt-file">
+   <div class="page-title"><div><span class="eyebrow">DOKUMEN</span><h1>Enkripsi File</h1><p>Pilih file teks, lalu unduh ciphertext TXT dalam format yang dipilih.</p></div></div>
+   <div class="work-grid file-work"><aside class="panel settings"><h2>Pengaturan</h2><div class="settings-fields" id="cfg-encrypt-file"></div></aside>
+    <section class="panel file-main"><h2>Dokumen sumber</h2><div class="sample-actions"><button class="btn alt" data-example="1" data-target="encrypt">Contoh Pesan</button><button class="btn alt" data-example="2" data-target="encrypt">Contoh Dokumen</button><label class="btn alt">Pilih File .TXT<input id="encrypt-upload" type="file" accept=".txt,text/plain" hidden></label></div>
+     <div id="encrypt-file-info" class="drop-hint">Belum ada file. Pilih contoh atau buka file sendiri.</div>
+     <label class="line-label">Pratinjau dokumen</label><pre class="file-preview" id="encrypt-preview">Isi dokumen akan ditampilkan di sini.</pre>
+     <label class="inline-check"><input type="checkbox" id="encrypt-verify" checked> Verifikasi pemulihan setelah enkripsi</label>
+     <div class="format-row"><label>Format ciphertext .TXT <select id="encrypt-export-format"><option value="HEX">HEX biasa</option><option value="ZAR1">ZAR1</option><option value="SLK1">SLK1 password</option><option value="B64">Base64 berlabel</option></select></label><small>ZAR1 untuk DES/3DES CBC. SLK1 memerlukan password teks, bukan kunci HEX langsung.</small></div>
+     <div class="tools larger"><button class="btn primary" id="file-encrypt">Enkripsi Dokumen ↗</button><button class="btn alt" id="encrypt-download" disabled>Unduh Ciphertext .TXT</button><button class="btn alt" id="encrypt-recovered" disabled>Unduh Hasil Pemulihan</button><button class="btn alt" id="encrypt-to-decrypt" disabled>Teruskan ke Dekripsi ↗</button></div>
+    </section>
+    <aside class="panel file-side"><h2>Ringkasan Proses</h2><div id="encrypt-report" class="result-note">Belum ada proses.</div></aside></div>
+  </section>
+
+  <section class="page" id="page-decrypt-file">
+   <div class="page-title"><div><span class="eyebrow">DOKUMEN</span><h1>Dekripsi File</h1><p>Buka ciphertext TXT (HEX / ZAR1 / SLK1 / Base64) atau file .enc lama.</p></div></div>
+   <div class="work-grid file-work"><aside class="panel settings"><h2>Pengaturan</h2><div class="settings-fields" id="cfg-decrypt-file"></div></aside>
+    <section class="panel file-main"><h2>File terenkripsi</h2><div class="sample-actions"><label class="btn alt">Buka Ciphertext<input id="decrypt-upload" type="file" accept=".enc,.txt,.bin" hidden></label><label class="btn alt">File Asli untuk Verifikasi<input id="decrypt-original" type="file" accept=".txt,text/plain" hidden></label><button class="btn alt" id="decrypt-friend">Ciphertext Contoh ZAR1</button></div>
+     <div class="format-row"><label>Format file masuk <select id="decrypt-input-format"><option value="AUTO">Deteksi otomatis</option><option value="HEX">HEX</option><option value="ZAR1">ZAR1</option><option value="SLK1">SLK1</option><option value="B64">Base64 berlabel</option><option value="BIN">.ENC biner</option></select></label><small>Jika ada metadata algoritma dan mode, program membacanya otomatis. Password tetap harus sama.</small></div><div id="decrypt-file-info" class="drop-hint">Belum ada ciphertext dipilih.</div><div id="decrypt-original-info" class="subhint">Verifikasi: belum ada file asli.</div>
+     <label class="line-label">Pratinjau ciphertext</label><pre class="file-preview" id="decrypt-preview">Pratinjau ciphertext akan ditampilkan di sini.</pre>
+     <div class="tools larger"><button class="btn primary" id="file-decrypt">Dekripsi Dokumen ↙</button><button class="btn alt" id="decrypt-download" disabled>Unduh Plaintext</button></div>
+     <div class="format-row"><label>Simpan salinan ciphertext sebagai <select id="decrypt-export-format"><option value="HEX">HEX .TXT</option><option value="ZAR1">ZAR1 .TXT</option><option value="SLK1">SLK1 .TXT</option><option value="B64">Base64 .TXT</option></select></label><button class="btn alt sm" id="decrypt-convert" disabled>Unduh Ciphertext Pilihan</button></div>
+    </section>
+    <aside class="panel file-side"><h2>Ringkasan Proses</h2><div id="decrypt-report" class="result-note">Belum ada proses.</div></aside></div>
+  </section>
+
+  <section class="page" id="page-compare">
+   <div class="page-title"><div><span class="eyebrow">VALIDASI</span><h1>Bandingkan Implementasi</h1><p>DES / 3DES Feistel sendiri dibandingkan dengan PyCryptodome.</p></div></div>
+   <div class="two-col"><aside class="panel settings"><h2>Pengaturan Uji</h2><div class="settings-fields" id="cfg-compare"></div></aside>
+    <section class="panel"><div class="panel-head"><h2>Plaintext Uji</h2><div class="tools"><button class="btn alt sm" data-example="1" data-target="compare">Contoh Pesan</button><button class="btn alt sm" data-example="2" data-target="compare">Contoh Dokumen</button><label class="btn alt sm">Buka .TXT<input id="compare-file" type="file" accept=".txt,text/plain" hidden></label></div></div>
+     <textarea id="compare-text" class="medium-text" placeholder="Masukkan plaintext..."></textarea>
+     <div class="tools larger"><button class="btn primary" id="compare-run">Bandingkan Hasil</button><button class="btn alt" id="compare-auto">Jalankan Pengujian</button></div>
+     <div class="result-card" id="compare-result">Belum ada perbandingan.</div>
+    </section>
+   </div>
+  </section>
+
+  <section class="page" id="page-feistel">
+   <div class="page-title"><div><span class="eyebrow">RINCIAN ALGORITMA</span><h1>Feistel &amp; XOR</h1><p>16 ronde DES atau 3 × 16 ronde 3DES, beserta notasi XOR.</p></div><div class="chip mathchip">Lᵢ = Rᵢ₋₁ &nbsp; | &nbsp; Rᵢ = Lᵢ₋₁ ⊕ F(Rᵢ₋₁,Kᵢ)</div></div>
+   <div class="two-col"><aside class="panel settings"><h2>Pengaturan Feistel</h2><div class="settings-fields" id="cfg-feistel"></div><div class="field"><label>Jenis input</label><select id="feistel-type"><option value="text">Teks biasa</option><option value="hex">HEX byte</option></select></div><div class="field"><label>Nomor blok (mulai 1)</label><input id="feistel-index" type="number" min="1" value="1"></div><button class="btn alt" id="feistel-standard">Vektor Standar</button></aside>
+    <section class="panel"><div class="panel-head"><h2>Data yang dianalisis</h2><div class="tools"><button class="btn alt sm" data-example="1" data-target="feistel">Contoh Pesan</button><button class="btn alt sm" data-example="2" data-target="feistel">Contoh Dokumen</button><label class="btn alt sm">Buka .TXT<input type="file" id="feistel-file" accept=".txt,text/plain" hidden></label></div></div>
+     <textarea class="medium-text" id="feistel-text">KRIPTO12</textarea><div class="tools larger"><button class="btn primary" id="feistel-run">Hitung Ronde ⊕</button><span class="subhint" id="feistel-file-note">Analisis satu blok dari input.</span></div>
+    </section></div>
+   <section class="panel trace-panel"><div class="panel-head"><h2>Hasil Analisis Feistel</h2><small>Geser tabel horizontal jika diperlukan</small></div><div id="feistel-result" class="result-card">Klik Hitung Ronde untuk melihat XOR per putaran.</div></section>
+  </section>
+
+  <section class="page" id="page-tests">
+   <div class="page-title"><div><span class="eyebrow">QUALITY CHECK</span><h1>Pengujian Algoritma</h1><p>Validasi DES, 3DES, padding, dan pemulihan data.</p></div></div>
+   <section class="panel"><div class="panel-head"><h2>Hasil Pengujian</h2><button class="btn primary" id="tests-run">Jalankan Semua Tes ✓</button></div><div class="result-card" id="tests-result">Klik tombol di atas untuk memulai pengujian.</div></section>
+  </section>
+ </main>
+ <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

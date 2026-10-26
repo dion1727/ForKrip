@@ -1,0 +1,3 @@
+Halo! Ini adalah contoh pesan untuk mencoba enkripsi dan dekripsi.
+Tanda baca: ! ? , . : ;
+Angka: 1234567890
